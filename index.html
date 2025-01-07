@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo advinha número</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vou adivinhar o número que voê esta pensando</h1>
+        
+        <div id="startSection">
+          <label for="nameInput">Digite seu nome:</label>
+          <input type="text" id="nameInput" placeholder="Seu nome">
+          <button id="startButton">Começar</button>
+        </div>
+        
+        <p id="instruction" style="display: none;">O número escolhido está neste cartão?</p>
+        <div id="card"></div>
+        
+        <div class="buttons" style="display: none;">
+          <button id="yesButton">Sim</button>
+          <button id="noButton">Não</button>
+        </div>
+        
+        <button id="restartButton" style="display: none;" onclick="restartGame()">Reiniciar</button>
+      </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
