@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include "pico/stdlib.h"
+
+#define LED_PIN_RED 13
+#define LED_PIN_GREEN 11
+#define LED_PIN_BLUE 12
+
+int main() {
+    stdio_init_all();
+    
+    // Inicializa os pinos dos LEDs
+    gpio_init(LED_PIN_RED);
+    gpio_init(LED_PIN_GREEN);
+    gpio_init(LED_PIN_BLUE);
+    
+    gpio_set_dir(LED_PIN_RED, GPIO_OUT);
+    gpio_set_dir(LED_PIN_GREEN, GPIO_OUT);
+    gpio_set_dir(LED_PIN_BLUE, GPIO_OUT);
+    
+    while (true) {
+        // Acende o LED vermelho e apaga os outros
+        gpio_put(LED_PIN_RED, 1);
+        gpio_put(LED_PIN_GREEN, 0);
+        gpio_put(LED_PIN_BLUE, 0);
+        sleep_ms(250);
+        
+        // Acende o LED verde e apaga os outros
+        gpio_put(LED_PIN_RED, 0);
+        gpio_put(LED_PIN_GREEN, 1);
+        gpio_put(LED_PIN_BLUE, 0);
+        sleep_ms(250);
+        
+        // Acende o LED azul e apaga os outros
+        gpio_put(LED_PIN_RED, 0);
+        gpio_put(LED_PIN_GREEN, 0);
+        gpio_put(LED_PIN_BLUE, 1);
+        sleep_ms(250);
+    }
+}
